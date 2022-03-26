@@ -1,11 +1,21 @@
 class Memo < Post
 
   def read_from_console
-    # todo
+    puts 'New memo. if you want end - write "end"'
+    @text = []
+    line = nil
+
+    while line != 'end' do
+      line = STDIN.gets.chomp
+      @text << line
+    end
+
+    @text.pop
   end
 
   def to_strings
-    # todo
-  end
+    time_string = "great #{@created_at.strftime("%Y.%m.%d - %H:%M:%S")} \n\r \n\r" 
 
+    return @text.unshift(time_string)
+  end
 end
